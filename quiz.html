@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz · Lingua Lab</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="brand">Lingua Lab</a>
+    <a href="quiz.html" class="active">Quiz</a>
+  </nav>
+  <main class="container">
+    <h1>Fill in the blank</h1>
+
+    <div class="controls">
+      <label>From
+        <select id="fromLang">
+          <option value="en">English</option>
+          <option value="it">Italian</option>
+          <option value="fr">French</option>
+        </select>
+      </label>
+      <button id="swap" title="Swap languages">⇄</button>
+      <label>To
+        <select id="toLang">
+          <option value="en">English</option>
+          <option value="it" selected>Italian</option>
+          <option value="fr">French</option>
+        </select>
+      </label>
+    </div>
+
+    <section class="quiz-box">
+      <p class="label" id="sourceLabel"></p>
+      <p class="sentence" id="source"></p>
+      <p class="label" id="targetLabel"></p>
+      <p class="sentence" id="target"></p>
+
+      <div class="actions">
+        <button id="check">Check</button>
+        <button id="reveal" class="secondary">Show answer</button>
+        <button id="next" class="secondary">Next →</button>
+      </div>
+      <p id="feedback"></p>
+      <p class="score">Score: <span id="score">0</span> / <span id="total">0</span></p>
+    </section>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

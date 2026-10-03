@@ -1,0 +1,20 @@
+[
+  {
+    "en": "I eat an apple every day.",
+    "it": "Mangio una mela ogni giorno.",
+    "fr": "Je mange une pomme tous les jours.",
+    "blank": { "en": "apple", "it": "mela", "fr": "pomme" }
+  },
+  {
+    "en": "The water is cold.",
+    "it": "L'acqua è fredda.",
+    "fr": "L'eau est froide.",
+    "blank": { "en": "cold", "it": "fredda", "fr": "froide" }
+  },
+  {
+    "en": "We are going to the station.",
+    "it": "Andiamo alla stazione.",
+    "fr": "Nous allons à la gare.",
+    "blank": { "en": "station", "it": "stazione", "fr": "gare" }
+  }
+]

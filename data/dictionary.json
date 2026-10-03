@@ -1,0 +1,34 @@
+{
+  "it": {
+    "mangio": { "en": "I eat (mangiare)", "native": "prima persona di mangiare: assumere cibo" },
+    "una": { "en": "a, an (fem.)", "native": "articolo indeterminativo femminile" },
+    "mela": { "en": "apple", "native": "frutto del melo" },
+    "ogni": { "en": "every, each", "native": "tutti, uno per uno" },
+    "giorno": { "en": "day", "native": "periodo di 24 ore" },
+    "l'": { "en": "the (before vowel)", "native": "articolo determinativo eliso" },
+    "acqua": { "en": "water", "native": "liquido incolore e inodore" },
+    "è": { "en": "is (essere)", "native": "terza persona di essere" },
+    "fredda": { "en": "cold (fem.)", "native": "che ha una bassa temperatura" },
+    "andiamo": { "en": "we go / let's go (andare)", "native": "prima persona plurale di andare" },
+    "alla": { "en": "to the (a + la)", "native": "preposizione articolata" },
+    "stazione": { "en": "station", "native": "luogo di fermata di treni o autobus" }
+  },
+  "fr": {
+    "je": { "en": "I", "native": "pronom personnel, 1re personne" },
+    "mange": { "en": "eat(s) (manger)", "native": "forme de manger : avaler un aliment" },
+    "une": { "en": "a, an (fem.)", "native": "article indéfini féminin" },
+    "pomme": { "en": "apple", "native": "fruit du pommier" },
+    "tous": { "en": "all, every", "native": "la totalité de" },
+    "les": { "en": "the (plural)", "native": "article défini pluriel" },
+    "jours": { "en": "days", "native": "pluriel de jour : période de 24 heures" },
+    "l'": { "en": "the (before vowel)", "native": "article défini élidé" },
+    "eau": { "en": "water", "native": "liquide incolore et inodore" },
+    "est": { "en": "is (être)", "native": "3e personne de être" },
+    "froide": { "en": "cold (fem.)", "native": "qui est à basse température" },
+    "nous": { "en": "we", "native": "pronom personnel, 1re personne du pluriel" },
+    "allons": { "en": "go (aller)", "native": "1re personne du pluriel de aller" },
+    "à": { "en": "to, at", "native": "préposition de lieu ou de direction" },
+    "la": { "en": "the (fem.)", "native": "article défini féminin" },
+    "gare": { "en": "train station", "native": "lieu d'arrivée et de départ des trains" }
+  }
+}
