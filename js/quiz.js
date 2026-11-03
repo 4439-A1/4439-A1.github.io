@@ -23,14 +23,16 @@ async function init() {
 function nextQuestion() {
   const from = $("fromLang").value, to = $("toLang").value;
   if (from === to) { $("feedback").textContent = "Pick two different languages."; return; }
-  const pool = sentences.filter(s => s[from] && s[to] && s.blank?.[to]);
+  const pool = sentences.filter(s => s[from] && s[to] && s.blanks?.[to]?.length);
+  if (!pool.length) { $("feedback").textContent = "No questions found. Try reloading the page."; return; }
   current = pool[Math.floor(Math.random() * pool.length)];
   answered = false;
 
   $("sourceLabel").textContent = LANG_NAMES[from];
   $("targetLabel").textContent = LANG_NAMES[to];
   renderWords($("source"), current[from], from, dict);
-  renderWords($("target"), current[to], to, dict, current.blank[to]);
+  const blanks = current.blanks[to];
+  renderWords($("target"), current[to], to, dict, blanks[Math.floor(Math.random() * blanks.length)]);
   $("feedback").textContent = ""; $("feedback").className = "";
   $("answer")?.focus();
 }

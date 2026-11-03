@@ -400,10 +400,10 @@ def find_key(table, token):
             return key
     return None
 
-def choose_blank(sentence, lang, glosses):
-    # The longest ordinary word. Names are capitalized, and capitals at the start
-    # of a sentence are only accepted if the dictionary knows the word.
-    best = None
+def choose_blanks(sentence, lang, glosses):
+    # Every ordinary word, once each. Names are capitalized, and capitals at the
+    # start of a sentence are only accepted if the dictionary knows the word.
+    blanks = {}
     for i, token in enumerate(PAGE_TOKEN.findall(sentence)):
         w = token.lower()
         if not token.isalpha() or len(w) < 3 or w in STOPWORDS[lang]:
@@ -413,9 +413,8 @@ def choose_blank(sentence, lang, glosses):
                 continue
         elif w not in glosses[lang] or (i > 0 and not token.islower()):
             continue
-        if best is None or len(w) > len(best):
-            best = token
-    return best
+        blanks.setdefault(w, token)
+    return list(blanks.values())
 
 def is_fully_defined(sentence, table):
     # Every lowercase word needs a tooltip; capitalized ones may be names
@@ -433,9 +432,9 @@ def build_sentences(triples, glosses):
         seen.add(t["en"])
         if not all(is_fully_defined(t[lang], glosses[lang]) for lang in ("it", "fr")):
             continue
-        blank = {lang: choose_blank(t[lang], lang, glosses) for lang in ("en", "it", "fr")}
-        if all(blank.values()):
-            pool.append({**t, "blank": blank})
+        blanks = {lang: choose_blanks(t[lang], lang, glosses) for lang in ("en", "it", "fr")}
+        if all(blanks.values()):
+            pool.append({**t, "blanks": blanks})
     print(f"{len(pool)} usable sentences")
     chosen = random.Random(SEED).sample(pool, min(MAX_SENTENCES, len(pool)))
     return sorted(chosen, key=lambda t: t["en"])

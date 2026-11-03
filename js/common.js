@@ -1,7 +1,8 @@
 const LANG_NAMES = { en: "English", it: "Italian", fr: "French" };
 
 async function loadJSON(path) {
-  const res = await fetch(path);
+  // Ask the server each time, so a data update can't pair new code with an old cached file
+  const res = await fetch(path, { cache: "no-cache" });
   if (!res.ok) throw new Error(`Could not load ${path}`);
   return res.json();
 }
