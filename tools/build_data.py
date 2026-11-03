@@ -1,3 +1,4 @@
+import gzip
 import json
 import random
 import re
@@ -176,16 +177,26 @@ POS_ORDER = {
     "noun": 7, "verb": 8, "adj": 9, "adv": 10,
 }
 UNCOMMON_TAGS = {
-    "abbreviation", "alt-of", "archaic", "dated", "dialectal", "Latinism", "literary",
-    "misspelling", "noun-from-verb", "obsolete", "poetic", "proscribed", "Quebec", "rare", "regional",
+    "abbreviation", "alt-of", "archaic", "dated", "dialectal", "familiar", "Latinism", "literary",
+    "misspelling", "noun-from-verb", "obsolete", "pejorative", "poetic", "proscribed", "Quebec",
+    "rare", "regional", "slang", "vulgar",
 }
 LETTER_NAME = re.compile(r"\bletter\b.*\b(latin|alphabet)|\b(latin|alphabet).*\bletter\b", re.I)
 
+# Wording from the Italian and French editions, which don't tag these senses
+NOT_A_DEFINITION = re.compile(
+    r"\( ?(approfondimento|citazioni)\)|definizione mancante"   # "casa ( approfondimento) f sing"
+    r"|\blettera\b.*\balfabeto\b|\blettre\b.*\balphabet\b",
+    re.I,
+)
+UNCOMMON_NATIVE = re.compile(r"(variante|abbreviazione|abréviation|symbole|simbolo)\b", re.I)
+
 def is_usable(pos, sense):
     tags = sense.get("tags") or []
-    if not sense.get("glosses") or pos == "character" or "letter" in tags or "acronym" in tags:
+    if not sense.get("glosses") or pos == "character" or {"letter", "acronym", "no-gloss"} & set(tags):
         return False
-    return not LETTER_NAME.search(" ".join(sense["glosses"]))
+    gloss = " ".join(sense["glosses"])
+    return not (LETTER_NAME.search(gloss) or NOT_A_DEFINITION.search(gloss))
 
 def rank_senses(entries, wanted=None):
     senses = [
@@ -200,7 +211,9 @@ def rank_senses(entries, wanted=None):
     return sorted(senses, key=key)
 
 def is_uncommon(pos, sense, wanted):
-    if pos == "name" or UNCOMMON_TAGS & set(sense.get("tags") or []):
+    if pos in ("name", "abbrev", "symbol") or UNCOMMON_TAGS & set(sense.get("tags") or []):
+        return True
+    if UNCOMMON_NATIVE.match(sense["glosses"][-1]):
         return True
     # Usage notes rather than meanings, e.g. "Denotes absolute time."
     if last_sentence(sense["glosses"][-1]).startswith(("Only used", "Used", "Denotes")):
@@ -208,12 +221,12 @@ def is_uncommon(pos, sense, wanted):
     # An inflection of a word our sentences never use is probably the wrong reading
     return bool(wanted and sense.get("form_of") and not set(base_words(sense)) & wanted)
 
-def shorten(gloss):
+def shorten(gloss, limit=MAX_GLOSS):
     # Drop parenthetical notes from long glosses, then cut at a word boundary
     if len(gloss) > 40:
         gloss = re.sub(r"\s*\([^)]*\)", "", gloss).strip() or gloss
-    if len(gloss) > MAX_GLOSS:
-        gloss = gloss[:MAX_GLOSS - 1].rsplit(" ", 1)[0].rstrip(",;:") + "…"
+    if len(gloss) > limit:
+        gloss = gloss[:limit - 1].rsplit(" ", 1)[0].rstrip(",;:") + "…"
     return gloss
 
 def last_sentence(gloss):
@@ -245,7 +258,7 @@ def describe(pos, sense, all_entries):
             return f"{gloss} ({meaning})"
     return gloss
 
-def choose_gloss(word, all_entries, wanted=None):
+def choose_gloss(word, all_entries, wanted=None, describe=describe):
     # One meaning, plus a second when the word has another distinct use
     ranked = rank_senses(all_entries[word], wanted)
     if not ranked:
@@ -280,6 +293,59 @@ def build_english_glosses(vocab):
         glosses[lang] = {w: {"en": g} for w, g in chosen.items() if g}
     return glosses
 
+# Everything each Wiktionary edition defines, in all languages, so filter by language.
+# The compressed exports are far smaller than the single-language files (780 MB vs 3.7 GB).
+NATIVE = {
+    "it": "https://kaikki.org/itwiktionary/raw-wiktextract-data.jsonl.gz",
+    "fr": "https://kaikki.org/frwiktionary/raw-wiktextract-data.jsonl.gz",
+}
+MAX_NATIVE_GLOSS = 80
+
+def load_native_entries(path, lang, wanted):
+    entries = defaultdict(list)
+    marker = f'"lang_code": "{lang}"'
+    with gzip.open(path, "rt", encoding="utf-8") as f:
+        for line in f:
+            if marker not in line:   # Much cheaper than parsing every language's entries
+                continue
+            e = json.loads(line)
+            w = e.get("word", "").lower().replace("’", "'")
+            if e.get("lang_code") == lang and w in wanted and e.get("senses"):
+                senses = [
+                    {k: sense[k] for k in ("glosses", "form_of", "tags") if k in sense}
+                    for sense in e["senses"]
+                ]
+                entries[w].append({"pos": e.get("pos"), "senses": senses})
+    return entries
+
+def get_native_entries(lang, wanted):
+    cache = CACHE_DIR / f"native_entries_{lang}.json"
+    if cache.exists() and cache.stat().st_size > 0:
+        print(f"Using cached {cache.name}")
+        return json.loads(cache.read_text(encoding="utf-8"))
+    path = download(NATIVE[lang], CACHE_DIR / f"wiktionary_{lang}.jsonl.gz")
+    print(f"Scanning {path.name}")
+    entries = load_native_entries(path, lang, wanted)
+    tmp = cache.with_suffix(".json.part")
+    tmp.write_text(json.dumps(entries, ensure_ascii=False), encoding="utf-8")
+    tmp.rename(cache)
+    return entries
+
+def describe_native(pos, sense, all_entries):
+    # Some glosses carry footnote markers like "^([1])" or end in a stray semicolon
+    gloss = re.sub(r"\s*\^\(\[[^\]]*\]\)", "", sense["glosses"][-1])
+    return shorten(gloss.rstrip(" .;"), MAX_NATIVE_GLOSS)
+
+def add_native_glosses(vocab, glosses):
+    # Only words with an English gloss: the tooltip in common.js always shows that line
+    for lang, wanted in vocab.items():
+        entries = get_native_entries(lang, wanted)
+        for w, entry in glosses[lang].items():
+            if w in entries:
+                native = choose_gloss(w, entries, wanted, describe_native)
+                if native:
+                    entry["native"] = native
+
 def report_coverage(vocab, glosses):
     for lang, wanted in vocab.items():
         hits = [w for w in wanted if w in glosses[lang]]
@@ -288,8 +354,10 @@ def report_coverage(vocab, glosses):
         plain_misses = [w for w in plain if w not in glosses[lang]]
         print(f"{lang}: {len(hits)} of {len(wanted)} keys have a gloss; "
               f"{len(plain) - len(plain_misses)} of {len(plain)} plain words")
+        native = [w for w in hits if "native" in glosses[lang][w]]
+        print(f"{lang}: {len(native)} of {len(hits)} glossed words have a native definition")
         for w in random.sample(hits, 20):
-            print(f"  {w}: {glosses[lang][w]['en']}")
+            print(f"  {w}: {glosses[lang][w]}")
         print("  misses:", random.sample(plain_misses, 20))
 
 
@@ -301,4 +369,5 @@ if __name__ == "__main__":
     print({k: len(v) for k, v in vocab.items()})
 
     glosses = build_english_glosses(vocab)
+    add_native_glosses(vocab, glosses)
     report_coverage(vocab, glosses)
