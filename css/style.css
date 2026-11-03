@@ -22,6 +22,9 @@ button.secondary { background:#e4e4e4; color:var(--fg); }
 #feedback.ok { color:var(--ok); } #feedback.bad { color:var(--bad); }
 .score { color:#777; font-size:.9rem; }
 
+.footer { max-width:760px; margin:2rem auto; padding:0 1rem; color:#777; font-size:.8rem; }
+.footer a { color:inherit; }
+
 /* hoverable words + tooltip */
 .word { position:relative; border-bottom:1px dotted #999; cursor:help; }
 .word:hover::after {

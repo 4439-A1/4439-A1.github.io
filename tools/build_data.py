@@ -361,6 +361,103 @@ def report_coverage(vocab, glosses):
         print("  misses:", random.sample(plain_misses, 20))
 
 
+MAX_SENTENCES = 5000
+MIN_WORDS = 3
+SEED = 4439   # Keeps the chosen sentences the same between runs
+
+STOPWORDS = {
+    "en": set("""
+        about after again also and are been before being but can could did does doing done down
+        for from going had has have her here hers him his how into its just like more most much
+        not now off one our out over she should some than that the their them then there these
+        they this those through too two under very was were what when where which who whom why
+        will with would you your yours
+    """.split()),
+    "it": set("""
+        alla alle allo anche ancora che chi come con cosa così dal dalla dalle dallo degli dei
+        del della delle dello dove due era erano essere gli hai hanno loro lui lei mai mio mia
+        miei mie molto nei nel nella nelle nello non nostro nostra per perché più poi quale
+        quando quanto quella quelle quelli quello questa queste questi questo qui sei sono
+        stato sua sue suo suoi sul sulla tua tue tuo tuoi tutto tutta tutti tutte una uno
+    """.split()),
+    "fr": set("""
+        aussi autre avec avez avoir avons ces cet cette comme dans des donc elle elles est
+        était étaient être eux ils leur leurs mais mes mon même moi nos notre nous ont oui
+        par pas plus pour quand que quel quelle qui sans ses son sont sur tes toi ton tous
+        tout toute toutes très une vos votre vous
+    """.split()),
+}
+
+# Same token rule as renderWords() in js/common.js, which can only blank a whole token
+PAGE_TOKEN = re.compile(r"(?:[^\W\d_]|['’])+")
+
+def find_key(table, token):
+    # Mirror lookup() in js/common.js: whole token, last part, first part + "'"
+    w = token.lower().replace("’", "'")
+    parts = w.split("'")
+    for key in (w, parts[-1], parts[0] + "'"):
+        if key in table:
+            return key
+    return None
+
+def choose_blank(sentence, lang, glosses):
+    # The longest ordinary word. Names are capitalized, and capitals at the start
+    # of a sentence are only accepted if the dictionary knows the word.
+    best = None
+    for i, token in enumerate(PAGE_TOKEN.findall(sentence)):
+        w = token.lower()
+        if not token.isalpha() or len(w) < 3 or w in STOPWORDS[lang]:
+            continue
+        if lang == "en":
+            if not token.islower():
+                continue
+        elif w not in glosses[lang] or (i > 0 and not token.islower()):
+            continue
+        if best is None or len(w) > len(best):
+            best = token
+    return best
+
+def is_fully_defined(sentence, table):
+    # Every lowercase word needs a tooltip; capitalized ones may be names
+    for token in PAGE_TOKEN.findall(sentence):
+        if token[0].islower() and not find_key(table, token):
+            return False
+    return True
+
+def build_sentences(triples, glosses):
+    seen = set()
+    pool = []
+    for t in sorted(triples, key=lambda t: t["en"]):
+        if t["en"] in seen or len(t["en"].split()) < MIN_WORDS:
+            continue
+        seen.add(t["en"])
+        if not all(is_fully_defined(t[lang], glosses[lang]) for lang in ("it", "fr")):
+            continue
+        blank = {lang: choose_blank(t[lang], lang, glosses) for lang in ("en", "it", "fr")}
+        if all(blank.values()):
+            pool.append({**t, "blank": blank})
+    print(f"{len(pool)} usable sentences")
+    chosen = random.Random(SEED).sample(pool, min(MAX_SENTENCES, len(pool)))
+    return sorted(chosen, key=lambda t: t["en"])
+
+def build_dictionary(sentences, glosses):
+    # Only the entries the page can actually reach
+    dictionary = {"it": {}, "fr": {}}
+    for t in sentences:
+        for lang, table in dictionary.items():
+            for token in PAGE_TOKEN.findall(t[lang]):
+                key = find_key(glosses[lang], token)
+                if key:
+                    table[key] = glosses[lang][key]
+    return dictionary
+
+def write_json(name, data):
+    path = Path(__file__).parent.parent / "data" / name
+    text = json.dumps(data, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    path.write_text(text + "\n", encoding="utf-8")
+    print(f"Wrote {path.name}: {path.stat().st_size / 1e6:.2f} MB")
+
+
 if __name__ == "__main__":
     triples = get_triples()
     print(f"{len(triples)} triples")
@@ -371,3 +468,9 @@ if __name__ == "__main__":
     glosses = build_english_glosses(vocab)
     add_native_glosses(vocab, glosses)
     report_coverage(vocab, glosses)
+
+    sentences = build_sentences(triples, glosses)
+    dictionary = build_dictionary(sentences, glosses)
+    print({lang: len(table) for lang, table in dictionary.items()})
+    write_json("sentences.json", sentences)
+    write_json("dictionary.json", dictionary)
