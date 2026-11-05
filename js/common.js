@@ -25,6 +25,11 @@ function lookup(dict, lang, raw) {
   return null;
 }
 
+// The text for a word's tooltip, also shown under an answered question
+function definitionText(entry, lang) {
+  return `${entry.word}\n🇬🇧 ${entry.en}` + (entry.native ? `\n${lang === "it" ? "🇮🇹" : "🇫🇷"} ${entry.native}` : "");
+}
+
 // Turn a sentence into hoverable spans (only for it/fr)
 function renderWords(container, sentence, lang, dict, blankWord = null) {
   container.innerHTML = "";
@@ -46,8 +51,7 @@ function renderWords(container, sentence, lang, dict, blankWord = null) {
       const span = document.createElement("span");
       span.className = "word";
       span.textContent = tok;
-      span.dataset.tip =
-        `${entry.word}\n🇬🇧 ${entry.en}` + (entry.native ? `\n${lang === "it" ? "🇮🇹" : "🇫🇷"} ${entry.native}` : "");
+      span.dataset.tip = definitionText(entry, lang);
       container.appendChild(span);
     } else {
       container.appendChild(document.createTextNode(tok));

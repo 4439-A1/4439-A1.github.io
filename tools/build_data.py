@@ -2,6 +2,7 @@ import gzip
 import json
 import random
 import re
+import unicodedata
 from collections import defaultdict
 from pathlib import Path
 from urllib import request
@@ -92,6 +93,35 @@ def get_triples():
     tmp.write_text(json.dumps(triples, ensure_ascii=False), encoding="utf-8")
     tmp.rename(TRIPLES_CACHE)
     return triples
+
+
+VARIANTS_CACHE = CACHE_DIR / "variants.json"
+
+def build_variants(triples):
+    # Every translation of the triples' sentences, since build_triples() keeps only the shortest
+    files = fetch_sentence_files()
+    data = {code: load_sentences(path) for code, path in files.items()}
+    wanted = {lang: {t[lang] for t in triples} for lang in LANGS}
+    variants = {pair: defaultdict(set) for pair in ("en>it", "en>fr", "it>en", "fr>en")}
+
+    links_path = download(f"{BASE}/links.tar.bz2", CACHE_DIR / "links.tar.bz2")
+    for a, b in iter_links(links_path):
+        for pair, table in variants.items():
+            source, target = pair.split(">")
+            if a in data[source] and b in data[target] and data[source][a] in wanted[source]:
+                table[data[source][a]].add(data[target][b])
+    return {pair: {text: sorted(found) for text, found in table.items()}
+            for pair, table in variants.items()}
+
+def get_variants(triples):
+    if VARIANTS_CACHE.exists() and VARIANTS_CACHE.stat().st_size > 0:
+        print(f"Using cached {VARIANTS_CACHE.name}")
+        return json.loads(VARIANTS_CACHE.read_text(encoding="utf-8"))
+    variants = build_variants(triples)
+    tmp = VARIANTS_CACHE.with_suffix(".json.part")
+    tmp.write_text(json.dumps(variants, ensure_ascii=False), encoding="utf-8")
+    tmp.rename(VARIANTS_CACHE)
+    return variants
 
 
 TOKEN = re.compile(r"[^\W\d_'’]+(?:['’][^\W\d_'’]+)*['’]?")
@@ -416,6 +446,50 @@ def choose_blanks(sentence, lang, glosses):
         blanks.setdefault(w, token)
     return list(blanks.values())
 
+def strip_accents(word):
+    # Mirror normalize() in js/common.js, which already accepts these as the same answer
+    decomposed = unicodedata.normalize("NFD", word.lower())
+    return "".join(c for c in decomposed if not unicodedata.combining(c))
+
+def swapped_words(sentence, others, lang, glosses):
+    # Other translations that differ by exactly one word: {word: {alternatives}}
+    tokens = [tok.lower() for tok in PAGE_TOKEN.findall(sentence)]
+    swaps = defaultdict(set)
+    for other in others:
+        other_tokens = [tok.lower() for tok in PAGE_TOKEN.findall(other)]
+        if len(other_tokens) != len(tokens):
+            continue
+        changed = [i for i in range(len(tokens)) if tokens[i] != other_tokens[i]]
+        if len(changed) != 1:
+            continue
+        i = changed[0]
+        word, alt = tokens[i], other_tokens[i]
+        # The page blanks a word's first appearance, so a later one wouldn't line up.
+        # choose_blanks() keeps out names and rare tokens, same as for real blanks.
+        if (tokens.index(word) == i and strip_accents(word) != strip_accents(alt)
+                and alt in map(str.lower, choose_blanks(other, lang, glosses))):
+            swaps[word].add(alt)
+    return swaps
+
+def find_alternatives(t, variants, glosses):
+    found = {
+        "it": swapped_words(t["it"], variants["en>it"].get(t["en"], []), "it", glosses),
+        "fr": swapped_words(t["fr"], variants["en>fr"].get(t["en"], []), "fr", glosses),
+    }
+    # One Italian or French word can cover two English meanings (dinner/special from
+    # one link), so an English alternative has to come through both languages.
+    via_it = swapped_words(t["en"], variants["it>en"].get(t["it"], []), "en", glosses)
+    via_fr = swapped_words(t["en"], variants["fr>en"].get(t["fr"], []), "en", glosses)
+    found["en"] = {w: via_it[w] & via_fr[w] for w in via_it.keys() & via_fr.keys()}
+
+    also = {}
+    for lang, swaps in found.items():
+        blanks = {tok.lower() for tok in t["blanks"][lang]}
+        table = {w: sorted(alts) for w, alts in swaps.items() if alts and w in blanks}
+        if table:
+            also[lang] = table
+    return also
+
 def is_fully_defined(sentence, table):
     # Every lowercase word needs a tooltip; capitalized ones may be names
     for token in PAGE_TOKEN.findall(sentence):
@@ -423,7 +497,7 @@ def is_fully_defined(sentence, table):
             return False
     return True
 
-def build_sentences(triples, glosses):
+def build_sentences(triples, glosses, variants):
     seen = set()
     pool = []
     for t in sorted(triples, key=lambda t: t["en"]):
@@ -437,6 +511,10 @@ def build_sentences(triples, glosses):
             pool.append({**t, "blanks": blanks})
     print(f"{len(pool)} usable sentences")
     chosen = random.Random(SEED).sample(pool, min(MAX_SENTENCES, len(pool)))
+    for t in chosen:
+        also = find_alternatives(t, variants, glosses)
+        if also:
+            t["also"] = also
     return sorted(chosen, key=lambda t: t["en"])
 
 def build_dictionary(sentences, glosses):
@@ -468,7 +546,8 @@ if __name__ == "__main__":
     add_native_glosses(vocab, glosses)
     report_coverage(vocab, glosses)
 
-    sentences = build_sentences(triples, glosses)
+    variants = get_variants(triples)
+    sentences = build_sentences(triples, glosses, variants)
     dictionary = build_dictionary(sentences, glosses)
     print({lang: len(table) for lang, table in dictionary.items()})
     write_json("sentences.json", sentences)
