@@ -1,0 +1,887 @@
+{
+  "it": {
+    "name": "Italian",
+    "sections": [
+      {
+        "title": "Present tense",
+        "tables": [
+          {
+            "caption": "Regular verbs",
+            "headers": ["", "parlare", "credere", "dormire", "finire"],
+            "rows": [
+              ["io", "parlo", "credo", "dormo", "finisco"],
+              ["tu", "parli", "credi", "dormi", "finisci"],
+              ["lui/lei", "parla", "crede", "dorme", "finisce"],
+              ["noi", "parliamo", "crediamo", "dormiamo", "finiamo"],
+              ["voi", "parlate", "credete", "dormite", "finite"],
+              ["loro", "parlano", "credono", "dormono", "finiscono"]
+            ]
+          },
+          {
+            "caption": "Common irregular verbs",
+            "headers": ["", "io", "tu", "lui/lei", "noi", "voi", "loro"],
+            "rows": [
+              ["essere", "sono", "sei", "è", "siamo", "siete", "sono"],
+              ["avere", "ho", "hai", "ha", "abbiamo", "avete", "hanno"],
+              ["andare", "vado", "vai", "va", "andiamo", "andate", "vanno"],
+              ["fare", "faccio", "fai", "fa", "facciamo", "fate", "fanno"],
+              ["stare", "sto", "stai", "sta", "stiamo", "state", "stanno"],
+              ["dare", "do", "dai", "dà", "diamo", "date", "danno"],
+              ["dire", "dico", "dici", "dice", "diciamo", "dite", "dicono"],
+              ["venire", "vengo", "vieni", "viene", "veniamo", "venite", "vengono"],
+              ["potere", "posso", "puoi", "può", "possiamo", "potete", "possono"],
+              ["volere", "voglio", "vuoi", "vuole", "vogliamo", "volete", "vogliono"],
+              ["dovere", "devo", "devi", "deve", "dobbiamo", "dovete", "devono"],
+              ["sapere", "so", "sai", "sa", "sappiamo", "sapete", "sanno"],
+              ["bere", "bevo", "bevi", "beve", "beviamo", "bevete", "bevono"],
+              ["uscire", "esco", "esci", "esce", "usciamo", "uscite", "escono"],
+              ["tenere", "tengo", "tieni", "tiene", "teniamo", "tenete", "tengono"],
+              ["rimanere", "rimango", "rimani", "rimane", "rimaniamo", "rimanete", "rimangono"]
+            ]
+          }
+        ],
+        "notes": [
+          "Subject pronouns are usually dropped: \"parlo\" already means \"I speak\".",
+          "Many -ire verbs add -isc- like finire, such as capire and preferire. Others follow dormire, such as partire and sentire.",
+          "Lei (capital L in formal writing) is the polite \"you\". It takes the lui/lei form: \"Come sta?\""
+        ]
+      },
+      {
+        "title": "Past: passato prossimo",
+        "intro": "Present of avere or essere + past participle. It's the everyday past for finished actions: \"Ho mangiato\" (I ate, I have eaten).",
+        "tables": [
+          {
+            "caption": "Forming the participle",
+            "headers": ["Ending", "Participle", "Example"],
+            "rows": [
+              ["-are", "-ato", "parlare → parlato"],
+              ["-ere", "-uto", "credere → creduto"],
+              ["-ire", "-ito", "dormire → dormito"]
+            ]
+          },
+          {
+            "caption": "Irregular participles",
+            "headers": ["Verb", "Participle", "Helper"],
+            "rows": [
+              ["essere", "stato", "essere"],
+              ["stare", "stato", "essere"],
+              ["rimanere", "rimasto", "essere"],
+              ["nascere", "nato", "essere"],
+              ["morire", "morto", "essere"],
+              ["venire", "venuto", "essere"],
+              ["fare", "fatto", "avere"],
+              ["dire", "detto", "avere"],
+              ["vedere", "visto", "avere"],
+              ["prendere", "preso", "avere"],
+              ["mettere", "messo", "avere"],
+              ["scrivere", "scritto", "avere"],
+              ["leggere", "letto", "avere"],
+              ["aprire", "aperto", "avere"],
+              ["chiudere", "chiuso", "avere"],
+              ["chiedere", "chiesto", "avere"],
+              ["rispondere", "risposto", "avere"],
+              ["bere", "bevuto", "avere"]
+            ]
+          }
+        ],
+        "notes": [
+          "Most verbs use avere. Many verbs of movement or change of state use essere: andare, venire, arrivare, partire, entrare, uscire, tornare, restare, nascere, morire, diventare. So do all reflexive verbs: \"Mi sono alzato.\"",
+          "With essere, the participle agrees with the subject: \"È nato\" (he was born), \"È nata\" (she was born), \"Sono nati\", \"Sono nate\".",
+          "With avere, it usually stays -o, but it agrees with lo, la, li, le before the verb: \"L'ho vista\" (I saw her)."
+        ]
+      },
+      {
+        "title": "Past: imperfetto",
+        "intro": "For ongoing or repeated past actions and descriptions: \"Dormivo\" (I was sleeping), \"Era alto\" (He was tall).",
+        "tables": [
+          {
+            "headers": ["", "parlare", "credere", "dormire"],
+            "rows": [
+              ["io", "parlavo", "credevo", "dormivo"],
+              ["tu", "parlavi", "credevi", "dormivi"],
+              ["lui/lei", "parlava", "credeva", "dormiva"],
+              ["noi", "parlavamo", "credevamo", "dormivamo"],
+              ["voi", "parlavate", "credevate", "dormivate"],
+              ["loro", "parlavano", "credevano", "dormivano"]
+            ],
+            "caption": "Regular verbs"
+          },
+          {
+            "caption": "Common irregular verbs",
+            "headers": ["", "io", "tu", "lui/lei", "noi", "voi", "loro"],
+            "rows": [
+              ["essere", "ero", "eri", "era", "eravamo", "eravate", "erano"],
+              ["avere", "avevo", "avevi", "aveva", "avevamo", "avevate", "avevano"],
+              ["andare", "andavo", "andavi", "andava", "andavamo", "andavate", "andavano"],
+              ["fare", "facevo", "facevi", "faceva", "facevamo", "facevate", "facevano"],
+              ["stare", "stavo", "stavi", "stava", "stavamo", "stavate", "stavano"],
+              ["dare", "davo", "davi", "dava", "davamo", "davate", "davano"],
+              ["dire", "dicevo", "dicevi", "diceva", "dicevamo", "dicevate", "dicevano"],
+              ["venire", "venivo", "venivi", "veniva", "venivamo", "venivate", "venivano"],
+              ["potere", "potevo", "potevi", "poteva", "potevamo", "potevate", "potevano"],
+              ["volere", "volevo", "volevi", "voleva", "volevamo", "volevate", "volevano"],
+              ["dovere", "dovevo", "dovevi", "doveva", "dovevamo", "dovevate", "dovevano"],
+              ["sapere", "sapevo", "sapevi", "sapeva", "sapevamo", "sapevate", "sapevano"],
+              ["bere", "bevevo", "bevevi", "beveva", "bevevamo", "bevevate", "bevevano"],
+              ["uscire", "uscivo", "uscivi", "usciva", "uscivamo", "uscivate", "uscivano"],
+              ["tenere", "tenevo", "tenevi", "teneva", "tenevamo", "tenevate", "tenevano"],
+              ["rimanere", "rimanevo", "rimanevi", "rimaneva", "rimanevamo", "rimanevate", "rimanevano"]
+            ]
+          }
+        ],
+        "notes": [
+          "Finire is regular here: finivo, finivi, finiva…"
+        ]
+      },
+      {
+        "title": "Past: passato remoto",
+        "intro": "Mostly seen in writing and stories, so it's useful to recognize: \"Disse\" (he said).",
+        "tables": [
+          {
+            "headers": ["", "parlare", "credere", "dormire"],
+            "rows": [
+              ["io", "parlai", "credei", "dormii"],
+              ["tu", "parlasti", "credesti", "dormisti"],
+              ["lui/lei", "parlò", "credé", "dormì"],
+              ["noi", "parlammo", "credemmo", "dormimmo"],
+              ["voi", "parlaste", "credeste", "dormiste"],
+              ["loro", "parlarono", "crederono", "dormirono"]
+            ],
+            "caption": "Regular verbs"
+          },
+          {
+            "caption": "Common irregular verbs",
+            "headers": ["", "io", "tu", "lui/lei", "noi", "voi", "loro"],
+            "rows": [
+              ["essere", "fui", "fosti", "fu", "fummo", "foste", "furono"],
+              ["avere", "ebbi", "avesti", "ebbe", "avemmo", "aveste", "ebbero"],
+              ["andare", "andai", "andasti", "andò", "andammo", "andaste", "andarono"],
+              ["fare", "feci", "facesti", "fece", "facemmo", "faceste", "fecero"],
+              ["stare", "stetti", "stesti", "stette", "stemmo", "steste", "stettero"],
+              ["dare", "diedi", "desti", "diede", "demmo", "deste", "diedero"],
+              ["dire", "dissi", "dicesti", "disse", "dicemmo", "diceste", "dissero"],
+              ["venire", "venni", "venisti", "venne", "venimmo", "veniste", "vennero"],
+              ["potere", "potei", "potesti", "poté", "potemmo", "poteste", "poterono"],
+              ["volere", "volli", "volesti", "volle", "volemmo", "voleste", "vollero"],
+              ["dovere", "dovei", "dovesti", "dové", "dovemmo", "doveste", "doverono"],
+              ["sapere", "seppi", "sapesti", "seppe", "sapemmo", "sapeste", "seppero"],
+              ["bere", "bevvi", "bevesti", "bevve", "bevemmo", "beveste", "bevvero"],
+              ["uscire", "uscii", "uscisti", "uscì", "uscimmo", "usciste", "uscirono"],
+              ["tenere", "tenni", "tenesti", "tenne", "tenemmo", "teneste", "tennero"],
+              ["rimanere", "rimasi", "rimanesti", "rimase", "rimanemmo", "rimaneste", "rimasero"]
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Future",
+        "tables": [
+          {
+            "headers": ["", "parlare", "credere", "dormire"],
+            "rows": [
+              ["io", "parlerò", "crederò", "dormirò"],
+              ["tu", "parlerai", "crederai", "dormirai"],
+              ["lui/lei", "parlerà", "crederà", "dormirà"],
+              ["noi", "parleremo", "crederemo", "dormiremo"],
+              ["voi", "parlerete", "crederete", "dormirete"],
+              ["loro", "parleranno", "crederanno", "dormiranno"]
+            ],
+            "caption": "Regular verbs"
+          },
+          {
+            "caption": "Common irregular verbs",
+            "headers": ["", "io", "tu", "lui/lei", "noi", "voi", "loro"],
+            "rows": [
+              ["essere", "sarò", "sarai", "sarà", "saremo", "sarete", "saranno"],
+              ["avere", "avrò", "avrai", "avrà", "avremo", "avrete", "avranno"],
+              ["andare", "andrò", "andrai", "andrà", "andremo", "andrete", "andranno"],
+              ["fare", "farò", "farai", "farà", "faremo", "farete", "faranno"],
+              ["stare", "starò", "starai", "starà", "staremo", "starete", "staranno"],
+              ["dare", "darò", "darai", "darà", "daremo", "darete", "daranno"],
+              ["dire", "dirò", "dirai", "dirà", "diremo", "direte", "diranno"],
+              ["venire", "verrò", "verrai", "verrà", "verremo", "verrete", "verranno"],
+              ["potere", "potrò", "potrai", "potrà", "potremo", "potrete", "potranno"],
+              ["volere", "vorrò", "vorrai", "vorrà", "vorremo", "vorrete", "vorranno"],
+              ["dovere", "dovrò", "dovrai", "dovrà", "dovremo", "dovrete", "dovranno"],
+              ["sapere", "saprò", "saprai", "saprà", "sapremo", "saprete", "sapranno"],
+              ["bere", "berrò", "berrai", "berrà", "berremo", "berrete", "berranno"],
+              ["uscire", "uscirò", "uscirai", "uscirà", "usciremo", "uscirete", "usciranno"],
+              ["tenere", "terrò", "terrai", "terrà", "terremo", "terrete", "terranno"],
+              ["rimanere", "rimarrò", "rimarrai", "rimarrà", "rimarremo", "rimarrete", "rimarranno"]
+            ]
+          }
+        ],
+        "notes": [
+          "-are verbs change the a to e: parlerò, not parlarò.",
+          "The conditional uses the same stems as the future."
+        ]
+      },
+      {
+        "title": "Conditional",
+        "intro": "\"Would\", and polite requests: \"Vorrei un caffè\" (I would like a coffee).",
+        "tables": [
+          {
+            "headers": ["", "parlare", "credere", "dormire"],
+            "rows": [
+              ["io", "parlerei", "crederei", "dormirei"],
+              ["tu", "parleresti", "crederesti", "dormiresti"],
+              ["lui/lei", "parlerebbe", "crederebbe", "dormirebbe"],
+              ["noi", "parleremmo", "crederemmo", "dormiremmo"],
+              ["voi", "parlereste", "credereste", "dormireste"],
+              ["loro", "parlerebbero", "crederebbero", "dormirebbero"]
+            ],
+            "caption": "Regular verbs"
+          },
+          {
+            "caption": "Common irregular verbs",
+            "headers": ["", "io", "tu", "lui/lei", "noi", "voi", "loro"],
+            "rows": [
+              ["essere", "sarei", "saresti", "sarebbe", "saremmo", "sareste", "sarebbero"],
+              ["avere", "avrei", "avresti", "avrebbe", "avremmo", "avreste", "avrebbero"],
+              ["andare", "andrei", "andresti", "andrebbe", "andremmo", "andreste", "andrebbero"],
+              ["fare", "farei", "faresti", "farebbe", "faremmo", "fareste", "farebbero"],
+              ["stare", "starei", "staresti", "starebbe", "staremmo", "stareste", "starebbero"],
+              ["dare", "darei", "daresti", "darebbe", "daremmo", "dareste", "darebbero"],
+              ["dire", "direi", "diresti", "direbbe", "diremmo", "direste", "direbbero"],
+              ["venire", "verrei", "verresti", "verrebbe", "verremmo", "verreste", "verrebbero"],
+              ["potere", "potrei", "potresti", "potrebbe", "potremmo", "potreste", "potrebbero"],
+              ["volere", "vorrei", "vorresti", "vorrebbe", "vorremmo", "vorreste", "vorrebbero"],
+              ["dovere", "dovrei", "dovresti", "dovrebbe", "dovremmo", "dovreste", "dovrebbero"],
+              ["sapere", "saprei", "sapresti", "saprebbe", "sapremmo", "sapreste", "saprebbero"],
+              ["bere", "berrei", "berresti", "berrebbe", "berremmo", "berreste", "berrebbero"],
+              ["uscire", "uscirei", "usciresti", "uscirebbe", "usciremmo", "uscireste", "uscirebbero"],
+              ["tenere", "terrei", "terresti", "terrebbe", "terremmo", "terreste", "terrebbero"],
+              ["rimanere", "rimarrei", "rimarresti", "rimarrebbe", "rimarremmo", "rimarreste", "rimarrebbero"]
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Present subjunctive",
+        "intro": "After expressions of opinion, doubt, wishes or feelings: \"Penso che sia vero\" (I think it's true).",
+        "tables": [
+          {
+            "headers": ["", "parlare", "credere", "dormire", "finire"],
+            "rows": [
+              ["io", "parli", "creda", "dorma", "finisca"],
+              ["tu", "parli", "creda", "dorma", "finisca"],
+              ["lui/lei", "parli", "creda", "dorma", "finisca"],
+              ["noi", "parliamo", "crediamo", "dormiamo", "finiamo"],
+              ["voi", "parliate", "crediate", "dormiate", "finiate"],
+              ["loro", "parlino", "credano", "dormano", "finiscano"]
+            ],
+            "caption": "Regular verbs"
+          },
+          {
+            "caption": "Common irregular verbs",
+            "headers": ["", "io", "tu", "lui/lei", "noi", "voi", "loro"],
+            "rows": [
+              ["essere", "sia", "sia", "sia", "siamo", "siate", "siano"],
+              ["avere", "abbia", "abbia", "abbia", "abbiamo", "abbiate", "abbiano"],
+              ["andare", "vada", "vada", "vada", "andiamo", "andiate", "vadano"],
+              ["fare", "faccia", "faccia", "faccia", "facciamo", "facciate", "facciano"],
+              ["stare", "stia", "stia", "stia", "stiamo", "stiate", "stiano"],
+              ["dare", "dia", "dia", "dia", "diamo", "diate", "diano"],
+              ["dire", "dica", "dica", "dica", "diciamo", "diciate", "dicano"],
+              ["venire", "venga", "venga", "venga", "veniamo", "veniate", "vengano"],
+              ["potere", "possa", "possa", "possa", "possiamo", "possiate", "possano"],
+              ["volere", "voglia", "voglia", "voglia", "vogliamo", "vogliate", "vogliano"],
+              ["dovere", "debba", "debba", "debba", "dobbiamo", "dobbiate", "debbano"],
+              ["sapere", "sappia", "sappia", "sappia", "sappiamo", "sappiate", "sappiano"],
+              ["bere", "beva", "beva", "beva", "beviamo", "beviate", "bevano"],
+              ["uscire", "esca", "esca", "esca", "usciamo", "usciate", "escano"],
+              ["tenere", "tenga", "tenga", "tenga", "teniamo", "teniate", "tengano"],
+              ["rimanere", "rimanga", "rimanga", "rimanga", "rimaniamo", "rimaniate", "rimangano"]
+            ]
+          }
+        ],
+        "notes": [
+          "The io, tu and lui/lei forms are the same, so pronouns are often kept to avoid confusion."
+        ]
+      },
+      {
+        "title": "Imperative",
+        "tables": [
+          {
+            "headers": ["", "parlare", "credere", "dormire", "finire"],
+            "rows": [
+              ["tu", "parla", "credi", "dormi", "finisci"],
+              ["Lei (formal)", "parli", "creda", "dorma", "finisca"],
+              ["noi", "parliamo", "crediamo", "dormiamo", "finiamo"],
+              ["voi", "parlate", "credete", "dormite", "finite"]
+            ],
+            "caption": "Regular verbs"
+          },
+          {
+            "caption": "Common irregular verbs",
+            "headers": ["", "tu", "Lei (formal)", "noi", "voi"],
+            "rows": [
+              ["essere", "sii", "sia", "siamo", "siate"],
+              ["avere", "abbi", "abbia", "abbiamo", "abbiate"],
+              ["andare", "va'", "vada", "andiamo", "andate"],
+              ["fare", "fa'", "faccia", "facciamo", "fate"],
+              ["stare", "sta'", "stia", "stiamo", "state"],
+              ["dare", "da'", "dia", "diamo", "date"],
+              ["dire", "di'", "dica", "diciamo", "dite"],
+              ["venire", "vieni", "venga", "veniamo", "venite"],
+              ["sapere", "sappi", "sappia", "sappiamo", "sappiate"],
+              ["bere", "bevi", "beva", "beviamo", "bevete"],
+              ["uscire", "esci", "esca", "usciamo", "uscite"],
+              ["tenere", "tieni", "tenga", "teniamo", "tenete"],
+              ["rimanere", "rimani", "rimanga", "rimaniamo", "rimanete"]
+            ]
+          }
+        ],
+        "notes": [
+          "Negative tu uses non + infinitive: \"Non parlare!\" Other forms just add non: \"Non parlate!\"",
+          "Pronouns attach to the informal forms: \"Guardami!\" They go before the formal one: \"Mi guardi!\"",
+          "Vai, fai, stai and dai are also common as the tu forms of andare, fare, stare and dare.",
+          "Potere, dovere and volere aren't normally used in the imperative."
+        ]
+      },
+      {
+        "title": "Articles",
+        "tables": [
+          {
+            "caption": "Masculine",
+            "headers": ["Before", "the (singular)", "the (plural)", "a/an"],
+            "rows": [
+              ["most consonants", "il libro", "i libri", "un libro"],
+              ["s + consonant, z, gn, ps", "lo studente", "gli studenti", "uno studente"],
+              ["a vowel", "l'amico", "gli amici", "un amico"]
+            ]
+          },
+          {
+            "caption": "Feminine",
+            "headers": ["Before", "the (singular)", "the (plural)", "a/an"],
+            "rows": [
+              ["a consonant", "la casa", "le case", "una casa"],
+              ["a vowel", "l'amica", "le amiche", "un'amica"]
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Prepositions + articles",
+        "intro": "These prepositions combine with \"the\": a + il = al, di + la = della.",
+        "tables": [
+          {
+            "headers": ["", "il", "lo", "l'", "la", "i", "gli", "le"],
+            "rows": [
+              ["a", "al", "allo", "all'", "alla", "ai", "agli", "alle"],
+              ["di", "del", "dello", "dell'", "della", "dei", "degli", "delle"],
+              ["da", "dal", "dallo", "dall'", "dalla", "dai", "dagli", "dalle"],
+              ["in", "nel", "nello", "nell'", "nella", "nei", "negli", "nelle"],
+              ["su", "sul", "sullo", "sull'", "sulla", "sui", "sugli", "sulle"]
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Nouns and adjectives",
+        "tables": [
+          {
+            "headers": ["Type", "Singular", "Plural"],
+            "rows": [
+              ["masculine -o", "libro", "libri"],
+              ["feminine -a", "casa", "case"],
+              ["either gender -e", "fiore, notte", "fiori, notti"]
+            ]
+          }
+        ],
+        "notes": [
+          "Adjectives agree with the noun and usually follow it: \"una casa rossa\", \"i libri rossi\".",
+          "Adjectives ending in -e have one singular and one plural form: \"un uomo gentile\", \"una donna gentile\", \"persone gentili\".",
+          "Some common adjectives usually go first: bello, buono, grande, piccolo."
+        ]
+      },
+      {
+        "title": "Pronouns",
+        "tables": [
+          {
+            "headers": ["English", "Direct object", "Indirect object"],
+            "rows": [
+              ["me", "mi", "mi"],
+              ["you", "ti", "ti"],
+              ["him / it", "lo", "gli"],
+              ["her / it", "la", "le"],
+              ["you (formal)", "La", "Le"],
+              ["us", "ci", "ci"],
+              ["you (plural)", "vi", "vi"],
+              ["them", "li (m), le (f)", "gli"]
+            ]
+          }
+        ],
+        "notes": [
+          "They go before a conjugated verb: \"Lo vedo.\" They attach to an infinitive: \"Voglio vederlo.\"",
+          "Together, mi, ti, ci, vi become me, te, ce, ve: \"Me lo dai?\" Gli and le become glielo, gliela, glieli, gliele.",
+          "Ci often means \"there\": \"Ci vado.\" Ne means \"of it\" or \"of them\": \"Ne voglio due.\""
+        ]
+      },
+      {
+        "title": "Possessives",
+        "tables": [
+          {
+            "headers": ["", "m. singular", "f. singular", "m. plural", "f. plural"],
+            "rows": [
+              ["my", "il mio", "la mia", "i miei", "le mie"],
+              ["your", "il tuo", "la tua", "i tuoi", "le tue"],
+              ["his/her", "il suo", "la sua", "i suoi", "le sue"],
+              ["our", "il nostro", "la nostra", "i nostri", "le nostre"],
+              ["your (plural)", "il vostro", "la vostra", "i vostri", "le vostre"],
+              ["their", "il loro", "la loro", "i loro", "le loro"]
+            ]
+          }
+        ],
+        "notes": [
+          "They agree with the thing owned, not the owner: \"la sua casa\" is his or her house.",
+          "Drop the article with a single family member: \"mia madre\", but \"le mie sorelle\" and \"la loro madre\"."
+        ]
+      },
+      {
+        "title": "Negatives and \"piacere\"",
+        "notes": [
+          "Put non before the verb: \"Non parlo.\"",
+          "Negative words keep non when they follow the verb: \"Non vedo niente\" (I see nothing), \"Non vado mai\" (I never go), \"Non c'è nessuno\" (Nobody is there).",
+          "Piacere works like \"to be pleasing to\": \"Mi piace il caffè\" (I like coffee), \"Mi piacciono i cani\" (I like dogs). The verb agrees with the thing liked."
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "name": "French",
+    "sections": [
+      {
+        "title": "Present tense",
+        "tables": [
+          {
+            "caption": "Regular verbs",
+            "headers": ["", "parler", "finir", "vendre"],
+            "rows": [
+              ["je", "parle", "finis", "vends"],
+              ["tu", "parles", "finis", "vends"],
+              ["il/elle", "parle", "finit", "vend"],
+              ["nous", "parlons", "finissons", "vendons"],
+              ["vous", "parlez", "finissez", "vendez"],
+              ["ils/elles", "parlent", "finissent", "vendent"]
+            ]
+          },
+          {
+            "caption": "Common irregular verbs",
+            "headers": ["", "je", "tu", "il/elle", "nous", "vous", "ils/elles"],
+            "rows": [
+              ["être", "suis", "es", "est", "sommes", "êtes", "sont"],
+              ["avoir", "ai", "as", "a", "avons", "avez", "ont"],
+              ["aller", "vais", "vas", "va", "allons", "allez", "vont"],
+              ["faire", "fais", "fais", "fait", "faisons", "faites", "font"],
+              ["dire", "dis", "dis", "dit", "disons", "dites", "disent"],
+              ["venir", "viens", "viens", "vient", "venons", "venez", "viennent"],
+              ["prendre", "prends", "prends", "prend", "prenons", "prenez", "prennent"],
+              ["voir", "vois", "vois", "voit", "voyons", "voyez", "voient"],
+              ["pouvoir", "peux", "peux", "peut", "pouvons", "pouvez", "peuvent"],
+              ["vouloir", "veux", "veux", "veut", "voulons", "voulez", "veulent"],
+              ["devoir", "dois", "dois", "doit", "devons", "devez", "doivent"],
+              ["savoir", "sais", "sais", "sait", "savons", "savez", "savent"],
+              ["mettre", "mets", "mets", "met", "mettons", "mettez", "mettent"],
+              ["boire", "bois", "bois", "boit", "buvons", "buvez", "boivent"],
+              ["écrire", "écris", "écris", "écrit", "écrivons", "écrivez", "écrivent"],
+              ["partir", "pars", "pars", "part", "partons", "partez", "partent"]
+            ]
+          }
+        ],
+        "notes": [
+          "Unlike Italian, the subject pronoun is required: \"Je parle.\"",
+          "Je becomes j' before a vowel or silent h: \"J'ai\", \"J'habite\".",
+          "Tu is informal. Vous is formal, or more than one person. On (\"one\", often \"we\") takes the il/elle form.",
+          "Many -ir verbs follow finir, but some, like partir and dormir, don't: je pars, nous partons."
+        ]
+      },
+      {
+        "title": "Past: passé composé",
+        "intro": "Present of avoir or être + past participle. It's the everyday past for finished actions: \"J'ai mangé\" (I ate, I have eaten).",
+        "tables": [
+          {
+            "caption": "Forming the participle",
+            "headers": ["Ending", "Participle", "Example"],
+            "rows": [
+              ["-er", "-é", "parler → parlé"],
+              ["-ir", "-i", "finir → fini"],
+              ["-re", "-u", "vendre → vendu"]
+            ]
+          },
+          {
+            "caption": "Irregular participles",
+            "headers": ["Verb", "Participle", "Helper"],
+            "rows": [
+              ["être", "été", "avoir"],
+              ["avoir", "eu", "avoir"],
+              ["faire", "fait", "avoir"],
+              ["dire", "dit", "avoir"],
+              ["prendre", "pris", "avoir"],
+              ["mettre", "mis", "avoir"],
+              ["voir", "vu", "avoir"],
+              ["pouvoir", "pu", "avoir"],
+              ["vouloir", "voulu", "avoir"],
+              ["devoir", "dû", "avoir"],
+              ["savoir", "su", "avoir"],
+              ["boire", "bu", "avoir"],
+              ["lire", "lu", "avoir"],
+              ["écrire", "écrit", "avoir"],
+              ["ouvrir", "ouvert", "avoir"],
+              ["venir", "venu", "être"],
+              ["naître", "né", "être"],
+              ["mourir", "mort", "être"]
+            ]
+          }
+        ],
+        "notes": [
+          "Most verbs use avoir. These use être: aller, venir, arriver, partir, entrer, sortir, monter, descendre, naître, mourir, rester, retourner, tomber, devenir, revenir, rentrer, passer. So do all reflexive verbs: \"Je me suis levé.\"",
+          "With être, the participle agrees with the subject: \"Il est né\", \"Elle est née\", \"Ils sont nés\", \"Elles sont nées\".",
+          "With avoir, it agrees only with a direct object placed before the verb: \"Je l'ai vue\" (I saw her)."
+        ]
+      },
+      {
+        "title": "Past: imparfait",
+        "intro": "For ongoing or repeated past actions and descriptions: \"Je dormais\" (I was sleeping), \"Il était grand\" (He was tall).",
+        "tables": [
+          {
+            "headers": ["", "parler", "finir", "vendre"],
+            "rows": [
+              ["je", "parlais", "finissais", "vendais"],
+              ["tu", "parlais", "finissais", "vendais"],
+              ["il/elle", "parlait", "finissait", "vendait"],
+              ["nous", "parlions", "finissions", "vendions"],
+              ["vous", "parliez", "finissiez", "vendiez"],
+              ["ils/elles", "parlaient", "finissaient", "vendaient"]
+            ],
+            "caption": "Regular verbs"
+          },
+          {
+            "caption": "Common irregular verbs",
+            "headers": ["", "je", "tu", "il/elle", "nous", "vous", "ils/elles"],
+            "rows": [
+              ["être", "étais", "étais", "était", "étions", "étiez", "étaient"],
+              ["avoir", "avais", "avais", "avait", "avions", "aviez", "avaient"],
+              ["aller", "allais", "allais", "allait", "allions", "alliez", "allaient"],
+              ["faire", "faisais", "faisais", "faisait", "faisions", "faisiez", "faisaient"],
+              ["dire", "disais", "disais", "disait", "disions", "disiez", "disaient"],
+              ["venir", "venais", "venais", "venait", "venions", "veniez", "venaient"],
+              ["prendre", "prenais", "prenais", "prenait", "prenions", "preniez", "prenaient"],
+              ["voir", "voyais", "voyais", "voyait", "voyions", "voyiez", "voyaient"],
+              ["pouvoir", "pouvais", "pouvais", "pouvait", "pouvions", "pouviez", "pouvaient"],
+              ["vouloir", "voulais", "voulais", "voulait", "voulions", "vouliez", "voulaient"],
+              ["devoir", "devais", "devais", "devait", "devions", "deviez", "devaient"],
+              ["savoir", "savais", "savais", "savait", "savions", "saviez", "savaient"],
+              ["mettre", "mettais", "mettais", "mettait", "mettions", "mettiez", "mettaient"],
+              ["boire", "buvais", "buvais", "buvait", "buvions", "buviez", "buvaient"],
+              ["écrire", "écrivais", "écrivais", "écrivait", "écrivions", "écriviez", "écrivaient"],
+              ["partir", "partais", "partais", "partait", "partions", "partiez", "partaient"]
+            ]
+          }
+        ],
+        "notes": [
+          "To find the stem, take the nous form of the present and drop -ons: nous faisons → je faisais. Être is the only exception."
+        ]
+      },
+      {
+        "title": "Past: passé simple",
+        "intro": "Used in formal writing and stories, not in speech, so it's useful to recognize: \"Il parla\" (he spoke).",
+        "tables": [
+          {
+            "headers": ["", "parler", "finir", "vendre"],
+            "rows": [
+              ["je", "parlai", "finis", "vendis"],
+              ["tu", "parlas", "finis", "vendis"],
+              ["il/elle", "parla", "finit", "vendit"],
+              ["nous", "parlâmes", "finîmes", "vendîmes"],
+              ["vous", "parlâtes", "finîtes", "vendîtes"],
+              ["ils/elles", "parlèrent", "finirent", "vendirent"]
+            ],
+            "caption": "Regular verbs"
+          },
+          {
+            "caption": "Common irregular verbs",
+            "headers": ["", "je", "tu", "il/elle", "nous", "vous", "ils/elles"],
+            "rows": [
+              ["être", "fus", "fus", "fut", "fûmes", "fûtes", "furent"],
+              ["avoir", "eus", "eus", "eut", "eûmes", "eûtes", "eurent"],
+              ["aller", "allai", "allas", "alla", "allâmes", "allâtes", "allèrent"],
+              ["faire", "fis", "fis", "fit", "fîmes", "fîtes", "firent"],
+              ["dire", "dis", "dis", "dit", "dîmes", "dîtes", "dirent"],
+              ["venir", "vins", "vins", "vint", "vînmes", "vîntes", "vinrent"],
+              ["prendre", "pris", "pris", "prit", "prîmes", "prîtes", "prirent"],
+              ["voir", "vis", "vis", "vit", "vîmes", "vîtes", "virent"],
+              ["pouvoir", "pus", "pus", "put", "pûmes", "pûtes", "purent"],
+              ["vouloir", "voulus", "voulus", "voulut", "voulûmes", "voulûtes", "voulurent"],
+              ["devoir", "dus", "dus", "dut", "dûmes", "dûtes", "durent"],
+              ["savoir", "sus", "sus", "sut", "sûmes", "sûtes", "surent"],
+              ["mettre", "mis", "mis", "mit", "mîmes", "mîtes", "mirent"],
+              ["boire", "bus", "bus", "but", "bûmes", "bûtes", "burent"],
+              ["écrire", "écrivis", "écrivis", "écrivit", "écrivîmes", "écrivîtes", "écrivirent"],
+              ["partir", "partis", "partis", "partit", "partîmes", "partîtes", "partirent"]
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Future",
+        "tables": [
+          {
+            "headers": ["", "parler", "finir", "vendre"],
+            "rows": [
+              ["je", "parlerai", "finirai", "vendrai"],
+              ["tu", "parleras", "finiras", "vendras"],
+              ["il/elle", "parlera", "finira", "vendra"],
+              ["nous", "parlerons", "finirons", "vendrons"],
+              ["vous", "parlerez", "finirez", "vendrez"],
+              ["ils/elles", "parleront", "finiront", "vendront"]
+            ],
+            "caption": "Regular verbs"
+          },
+          {
+            "caption": "Common irregular verbs",
+            "headers": ["", "je", "tu", "il/elle", "nous", "vous", "ils/elles"],
+            "rows": [
+              ["être", "serai", "seras", "sera", "serons", "serez", "seront"],
+              ["avoir", "aurai", "auras", "aura", "aurons", "aurez", "auront"],
+              ["aller", "irai", "iras", "ira", "irons", "irez", "iront"],
+              ["faire", "ferai", "feras", "fera", "ferons", "ferez", "feront"],
+              ["dire", "dirai", "diras", "dira", "dirons", "direz", "diront"],
+              ["venir", "viendrai", "viendras", "viendra", "viendrons", "viendrez", "viendront"],
+              ["prendre", "prendrai", "prendras", "prendra", "prendrons", "prendrez", "prendront"],
+              ["voir", "verrai", "verras", "verra", "verrons", "verrez", "verront"],
+              ["pouvoir", "pourrai", "pourras", "pourra", "pourrons", "pourrez", "pourront"],
+              ["vouloir", "voudrai", "voudras", "voudra", "voudrons", "voudrez", "voudront"],
+              ["devoir", "devrai", "devras", "devra", "devrons", "devrez", "devront"],
+              ["savoir", "saurai", "sauras", "saura", "saurons", "saurez", "sauront"],
+              ["mettre", "mettrai", "mettras", "mettra", "mettrons", "mettrez", "mettront"],
+              ["boire", "boirai", "boiras", "boira", "boirons", "boirez", "boiront"],
+              ["écrire", "écrirai", "écriras", "écrira", "écrirons", "écrirez", "écriront"],
+              ["partir", "partirai", "partiras", "partira", "partirons", "partirez", "partiront"]
+            ]
+          }
+        ],
+        "notes": [
+          "Add the endings to the infinitive, dropping the final e of -re verbs.",
+          "The conditional uses the same stems. For the near future, use aller + infinitive: \"Je vais manger.\""
+        ]
+      },
+      {
+        "title": "Conditional",
+        "intro": "\"Would\", and polite requests: \"Je voudrais un café\" (I would like a coffee).",
+        "tables": [
+          {
+            "headers": ["", "parler", "finir", "vendre"],
+            "rows": [
+              ["je", "parlerais", "finirais", "vendrais"],
+              ["tu", "parlerais", "finirais", "vendrais"],
+              ["il/elle", "parlerait", "finirait", "vendrait"],
+              ["nous", "parlerions", "finirions", "vendrions"],
+              ["vous", "parleriez", "finiriez", "vendriez"],
+              ["ils/elles", "parleraient", "finiraient", "vendraient"]
+            ],
+            "caption": "Regular verbs"
+          },
+          {
+            "caption": "Common irregular verbs",
+            "headers": ["", "je", "tu", "il/elle", "nous", "vous", "ils/elles"],
+            "rows": [
+              ["être", "serais", "serais", "serait", "serions", "seriez", "seraient"],
+              ["avoir", "aurais", "aurais", "aurait", "aurions", "auriez", "auraient"],
+              ["aller", "irais", "irais", "irait", "irions", "iriez", "iraient"],
+              ["faire", "ferais", "ferais", "ferait", "ferions", "feriez", "feraient"],
+              ["dire", "dirais", "dirais", "dirait", "dirions", "diriez", "diraient"],
+              ["venir", "viendrais", "viendrais", "viendrait", "viendrions", "viendriez", "viendraient"],
+              ["prendre", "prendrais", "prendrais", "prendrait", "prendrions", "prendriez", "prendraient"],
+              ["voir", "verrais", "verrais", "verrait", "verrions", "verriez", "verraient"],
+              ["pouvoir", "pourrais", "pourrais", "pourrait", "pourrions", "pourriez", "pourraient"],
+              ["vouloir", "voudrais", "voudrais", "voudrait", "voudrions", "voudriez", "voudraient"],
+              ["devoir", "devrais", "devrais", "devrait", "devrions", "devriez", "devraient"],
+              ["savoir", "saurais", "saurais", "saurait", "saurions", "sauriez", "sauraient"],
+              ["mettre", "mettrais", "mettrais", "mettrait", "mettrions", "mettriez", "mettraient"],
+              ["boire", "boirais", "boirais", "boirait", "boirions", "boiriez", "boiraient"],
+              ["écrire", "écrirais", "écrirais", "écrirait", "écririons", "écririez", "écriraient"],
+              ["partir", "partirais", "partirais", "partirait", "partirions", "partiriez", "partiraient"]
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Present subjunctive",
+        "intro": "After que with wishes, doubt, feelings or necessity: \"Il faut que je parte\" (I have to leave).",
+        "tables": [
+          {
+            "headers": ["", "parler", "finir", "vendre"],
+            "rows": [
+              ["je", "parle", "finisse", "vende"],
+              ["tu", "parles", "finisses", "vendes"],
+              ["il/elle", "parle", "finisse", "vende"],
+              ["nous", "parlions", "finissions", "vendions"],
+              ["vous", "parliez", "finissiez", "vendiez"],
+              ["ils/elles", "parlent", "finissent", "vendent"]
+            ],
+            "caption": "Regular verbs"
+          },
+          {
+            "caption": "Common irregular verbs",
+            "headers": ["", "je", "tu", "il/elle", "nous", "vous", "ils/elles"],
+            "rows": [
+              ["être", "sois", "sois", "soit", "soyons", "soyez", "soient"],
+              ["avoir", "aie", "aies", "ait", "ayons", "ayez", "aient"],
+              ["aller", "aille", "ailles", "aille", "allions", "alliez", "aillent"],
+              ["faire", "fasse", "fasses", "fasse", "fassions", "fassiez", "fassent"],
+              ["dire", "dise", "dises", "dise", "disions", "disiez", "disent"],
+              ["venir", "vienne", "viennes", "vienne", "venions", "veniez", "viennent"],
+              ["prendre", "prenne", "prennes", "prenne", "prenions", "preniez", "prennent"],
+              ["voir", "voie", "voies", "voie", "voyions", "voyiez", "voient"],
+              ["pouvoir", "puisse", "puisses", "puisse", "puissions", "puissiez", "puissent"],
+              ["vouloir", "veuille", "veuilles", "veuille", "voulions", "vouliez", "veuillent"],
+              ["devoir", "doive", "doives", "doive", "devions", "deviez", "doivent"],
+              ["savoir", "sache", "saches", "sache", "sachions", "sachiez", "sachent"],
+              ["mettre", "mette", "mettes", "mette", "mettions", "mettiez", "mettent"],
+              ["boire", "boive", "boives", "boive", "buvions", "buviez", "boivent"],
+              ["écrire", "écrive", "écrives", "écrive", "écrivions", "écriviez", "écrivent"],
+              ["partir", "parte", "partes", "parte", "partions", "partiez", "partent"]
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Imperative",
+        "tables": [
+          {
+            "headers": ["", "parler", "finir", "vendre"],
+            "rows": [
+              ["tu", "parle", "finis", "vends"],
+              ["nous", "parlons", "finissons", "vendons"],
+              ["vous", "parlez", "finissez", "vendez"]
+            ],
+            "caption": "Regular verbs"
+          },
+          {
+            "caption": "Common irregular verbs",
+            "headers": ["", "tu", "nous", "vous"],
+            "rows": [
+              ["être", "sois", "soyons", "soyez"],
+              ["avoir", "aie", "ayons", "ayez"],
+              ["aller", "va", "allons", "allez"],
+              ["faire", "fais", "faisons", "faites"],
+              ["dire", "dis", "disons", "dites"],
+              ["venir", "viens", "venons", "venez"],
+              ["prendre", "prends", "prenons", "prenez"],
+              ["voir", "vois", "voyons", "voyez"],
+              ["vouloir", "veuille", "veuillons", "veuillez"],
+              ["savoir", "sache", "sachons", "sachez"],
+              ["mettre", "mets", "mettons", "mettez"],
+              ["boire", "bois", "buvons", "buvez"],
+              ["écrire", "écris", "écrivons", "écrivez"],
+              ["partir", "pars", "partons", "partez"]
+            ]
+          }
+        ],
+        "notes": [
+          "Tu forms of -er verbs drop the s: \"Parle !\"",
+          "Pronouns follow with a hyphen when positive: \"Regarde-moi !\" They go before when negative: \"Ne me regarde pas !\"",
+          "Pouvoir and devoir aren't normally used in the imperative."
+        ]
+      },
+      {
+        "title": "Articles",
+        "tables": [
+          {
+            "headers": ["", "Masculine", "Feminine", "Before a vowel", "Plural"],
+            "rows": [
+              ["the", "le livre", "la maison", "l'ami", "les livres"],
+              ["a/an, some (plural)", "un livre", "une maison", "un ami, une amie", "des livres"],
+              ["some (amount)", "du pain", "de la soupe", "de l'eau", "des pâtes"]
+            ]
+          },
+          {
+            "caption": "Prepositions combine with le and les",
+            "headers": ["", "le", "la", "l'", "les"],
+            "rows": [
+              ["à", "au", "à la", "à l'", "aux"],
+              ["de", "du", "de la", "de l'", "des"]
+            ]
+          }
+        ],
+        "notes": [
+          "After a negative, un, une, du, de la and des become de: \"Je n'ai pas de voiture.\" Être is the exception: \"Ce n'est pas un chat.\"",
+          "French uses articles more than English: \"J'aime le café\" (I like coffee)."
+        ]
+      },
+      {
+        "title": "Nouns and adjectives",
+        "tables": [
+          {
+            "headers": ["", "Singular", "Plural"],
+            "rows": [
+              ["masculine", "petit", "petits"],
+              ["feminine", "petite", "petites"]
+            ]
+          }
+        ],
+        "notes": [
+          "Most nouns and adjectives add -s for plural. Those already ending in -s or -x don't change, and most ending in -eau or -al become -eaux and -aux.",
+          "Adjectives usually follow the noun: \"une voiture rouge\".",
+          "Some common short ones go first: beau, joli, jeune, vieux, bon, mauvais, petit, grand.",
+          "Common irregular feminines: beau → belle, vieux → vieille, nouveau → nouvelle, bon → bonne, heureux → heureuse, blanc → blanche."
+        ]
+      },
+      {
+        "title": "Pronouns",
+        "tables": [
+          {
+            "headers": ["English", "Direct object", "Indirect object", "After a preposition"],
+            "rows": [
+              ["me", "me", "me", "moi"],
+              ["you", "te", "te", "toi"],
+              ["him / it", "le", "lui", "lui"],
+              ["her / it", "la", "lui", "elle"],
+              ["us", "nous", "nous", "nous"],
+              ["you (formal, plural)", "vous", "vous", "vous"],
+              ["them", "les", "leur", "eux (m), elles (f)"]
+            ]
+          }
+        ],
+        "notes": [
+          "They go before the verb: \"Je le vois.\" With two verbs, before the infinitive: \"Je veux le voir.\"",
+          "Me, te, le and la become m', t' and l' before a vowel: \"Je t'aime.\"",
+          "Y means \"there\" or \"to it\": \"J'y vais.\" En means \"of it\" or \"some\": \"J'en veux deux.\"",
+          "Order when combined: me/te/nous/vous, then le/la/les, then lui/leur, then y, then en: \"Je te le donne\", \"Je le lui donne.\""
+        ]
+      },
+      {
+        "title": "Possessives",
+        "tables": [
+          {
+            "headers": ["", "Masculine", "Feminine", "Plural"],
+            "rows": [
+              ["my", "mon", "ma", "mes"],
+              ["your", "ton", "ta", "tes"],
+              ["his/her", "son", "sa", "ses"],
+              ["our", "notre", "notre", "nos"],
+              ["your (formal, plural)", "votre", "votre", "vos"],
+              ["their", "leur", "leur", "leurs"]
+            ]
+          }
+        ],
+        "notes": [
+          "They agree with the thing owned, not the owner: \"sa maison\" is his or her house.",
+          "Ma, ta and sa become mon, ton and son before a vowel: \"mon amie\"."
+        ]
+      },
+      {
+        "title": "Negatives and questions",
+        "notes": [
+          "Ne goes before the verb and pas after it: \"Je ne parle pas.\" Ne becomes n' before a vowel: \"Je n'ai pas.\"",
+          "In a compound tense, they wrap around the helper verb: \"Je n'ai pas mangé.\"",
+          "Other negatives replace pas: ne… jamais (never), ne… rien (nothing), ne… plus (no longer), ne… personne (nobody).",
+          "In casual speech, ne is often dropped: \"Je sais pas.\"",
+          "Three ways to ask a question: rising tone (\"Tu viens ?\"), est-ce que (\"Est-ce que tu viens ?\"), or inversion, which is more formal (\"Viens-tu ?\").",
+          "Spacing: French puts a space before ? ! : ; and inside « »."
+        ]
+      }
+    ]
+  }
+}

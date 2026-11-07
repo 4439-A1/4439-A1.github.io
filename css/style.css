@@ -27,6 +27,33 @@ button.secondary { background:#e4e4e4; color:var(--fg); }
 .footer { max-width:760px; margin:2rem auto; padding:0 1rem; color:#777; font-size:.8rem; }
 .footer a { color:inherit; }
 
+/* two halves: page content + cheatsheet */
+.split { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:2rem; align-items:start;
+         max-width:1400px; margin:2rem auto; padding:0 1.5rem; }
+.split .container { max-width:none; margin:0; padding:0; }
+.split h1 { margin-top:0; }
+.cheatsheet { position:sticky; top:1rem; max-height:calc(100vh - 2rem); overflow-y:auto;
+              background:var(--card); padding:1.25rem; border-radius:10px; border:1px solid #ddd; }
+.cheat-header { display:flex; justify-content:space-between; align-items:center; gap:.75rem; flex-wrap:wrap; margin-bottom:.75rem; }
+.cheat-header h2 { margin:0; font-size:1.2rem; }
+.cheat-tabs { display:flex; gap:.4rem; }
+.cheatsheet details { border-top:1px solid #ddd; padding:.6rem 0; }
+.cheatsheet summary { font-weight:600; cursor:pointer; }
+.cheatsheet p, .cheatsheet ul { font-size:.92rem; line-height:1.45; margin:.6rem 0; }
+.cheatsheet ul { padding-left:1.2rem; }
+.cheatsheet li { margin-bottom:.35rem; }
+.cheat-table { overflow-x:auto; margin:.6rem 0; }
+.cheat-table table { border-collapse:collapse; font-size:.88rem; width:100%; }
+.cheat-table caption { text-align:left; font-weight:600; font-size:.85rem; color:#555; padding-bottom:.25rem; }
+.cheat-table th, .cheat-table td { padding:.25rem .5rem; border-bottom:1px solid #eee; text-align:left; white-space:nowrap; }
+.cheat-table thead th { color:#555; border-bottom:1px solid #bbb; }
+.cheat-table tbody th { font-weight:600; color:#555; }
+
+@media (max-width:900px) {
+  .split { grid-template-columns:minmax(0,1fr); padding:0 1rem; }
+  .cheatsheet { position:static; max-height:none; overflow-y:visible; }
+}
+
 /* hoverable words + tooltip */
 .word { position:relative; border-bottom:1px dotted #999; cursor:help; }
 .word:hover::after {

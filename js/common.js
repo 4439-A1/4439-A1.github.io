@@ -27,7 +27,8 @@ function lookup(dict, lang, raw) {
 
 // The text for a word's tooltip, also shown under an answered question
 function definitionText(entry, lang) {
-  return `${entry.word}\n🇬🇧 ${entry.en}` + (entry.native ? `\n${lang === "it" ? "🇮🇹" : "🇫🇷"} ${entry.native}` : "");
+  const ipa = entry.ipa ? ` ${entry.ipa}` : "";
+  return `${entry.word}${ipa}\n🇬🇧 ${entry.en}` + (entry.native ? `\n${lang === "it" ? "🇮🇹" : "🇫🇷"} ${entry.native}` : "");
 }
 
 // Turn a sentence into hoverable spans (only for it/fr)

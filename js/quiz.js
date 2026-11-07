@@ -16,18 +16,24 @@ async function init() {
     loadJSON("data/sentences.json"),
     loadJSON("data/dictionary.json"),
   ]);
-  $("fromLang").onchange = $("toLang").onchange = nextQuestion;
+  $("fromLang").onchange = $("toLang").onchange = languagesChanged;
   $("swap").onclick = () => {
     [$("fromLang").value, $("toLang").value] = [$("toLang").value, $("fromLang").value];
-    nextQuestion();
+    languagesChanged();
   };
   $("check").onclick = check;
   $("reveal").onclick = reveal;
   $("next").onclick = nextQuestion;
   $("markRight").onclick = markRight;
   document.addEventListener("keydown", e => {
-    if (e.key === "Enter" && e.target.id !== "markRight") answered ? nextQuestion() : check();
+    if (e.key !== "Enter" || e.target.id === "markRight" || e.target.closest?.("#cheatsheet")) return;
+    answered ? nextQuestion() : check();
   });
+  languagesChanged();
+}
+
+function languagesChanged() {
+  followQuizLanguages($("fromLang").value, $("toLang").value);
   nextQuestion();
 }
 
